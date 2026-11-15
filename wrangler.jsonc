@@ -1,6 +1,10 @@
 {
   "name": "youdestudio",
   "compatibility_date": "2026-11-15",
+  "routes": [
+    { "pattern": "youdestudio.com", "custom_domain": true },
+    { "pattern": "www.youdestudio.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": "./public/",
     "not_found_handling": "404-page"

@@ -34,7 +34,7 @@ Open http://localhost:8080/ (root-relative links require serving from the site r
 1. Push this folder to the `main` branch of the GitHub repository (it can be private).
 2. Cloudflare dashboard > Workers & Pages > Create application > connect the GitHub repository.
 3. Project/Worker name `youdestudio` (must match `name` in `wrangler.jsonc`). Build command: empty. Deploy command: `npx wrangler deploy`.
-4. After the first deploy: Worker > Settings > Domains & Routes > Add > Custom domain > `youdestudio.com`. Cloudflare creates the DNS record and HTTPS certificate automatically. Optionally add `www.youdestudio.com` too.
+4. The custom domains `youdestudio.com` and `www.youdestudio.com` are declared in `wrangler.jsonc` (`routes`), so the first successful deploy creates the DNS records and HTTPS certificates automatically. This only works if no conflicting DNS record (for example an old A or CNAME record) exists for those hostnames.
 5. Every push to `main` redeploys the site. `public/_headers` sets basic security headers.
 
 If an old DNS record from a previous GitHub Pages setup exists (A records to 185.199.x.x or a `www` CNAME to github.io), delete it before adding the custom domain.
