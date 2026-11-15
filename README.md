@@ -27,25 +27,17 @@ python -m http.server 8080
 ```
 Open http://localhost:8080/ (root-relative links require serving from the site root).
 
-## Deploy: GitHub Pages
+## Deploy: Cloudflare Pages
 
-1. Create a GitHub repository and push this folder to the `main` branch.
-2. Repository Settings > Pages > Deploy from branch `main`, folder `/ (root)`. The `CNAME` file sets the custom domain `youdestudio.com`.
-3. Enable "Enforce HTTPS" once the certificate is issued.
+1. Push this folder to the `main` branch of the GitHub repository (it can be private).
+2. Cloudflare dashboard > Workers & Pages > Create > Pages > Connect to Git, select the repository.
+3. Build command: leave empty. Build output directory: `/` (the repository root). Deploy.
+4. In the Pages project > Custom domains, add `youdestudio.com`. Cloudflare creates the DNS record and HTTPS certificate automatically.
+5. Optional: add `www.youdestudio.com` as a custom domain too, or create a Redirect Rule from `www` to the apex domain.
 
-## DNS: Cloudflare
+Every push to `main` redeploys the site. `_headers` sets basic security headers.
 
-Add these records with proxy status **DNS only** (grey cloud) so GitHub can issue the certificate:
-
-| Type | Name | Value |
-|---|---|---|
-| A | `@` | 185.199.108.153 |
-| A | `@` | 185.199.109.153 |
-| A | `@` | 185.199.110.153 |
-| A | `@` | 185.199.111.153 |
-| CNAME | `www` | `<github-username>.github.io` |
-
-Check the current GitHub Pages IPs in GitHub's documentation before configuring.
+If an old DNS record from a previous GitHub Pages setup exists (A records to 185.199.x.x or a `www` CNAME to github.io), delete it before adding the custom domain.
 
 ## Email: Cloudflare Email Routing
 
