@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Youde Studio</title>
+  <meta name="description" content="Youde Studio – Freiburg, Germany. Deutsch / English.">
+  <link rel="canonical" href="https://youdestudio.com/">
+  <link rel="alternate" hreflang="en" href="https://youdestudio.com/en/">
+  <link rel="alternate" hreflang="de" href="https://youdestudio.com/de/">
+  <link rel="alternate" hreflang="x-default" href="https://youdestudio.com/">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <main class="chooser">
+    <div>
+      <h1 class="brand" style="font-size:1.8rem;margin:0">Youde <span>Studio</span></h1>
+      <p class="lead" style="margin:.5rem auto 1.5rem">Freiburg, Germany</p>
+      <a class="btn" href="/de/" lang="de">Deutsch</a>
+      <a class="btn" href="/en/" lang="en">English</a>
+    </div>
+  </main>
+  <script>
+    // Send German-language browsers to /de/, everyone else to /en/. The links above remain as a no-JS fallback.
+    (function () {
+      var langs = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || 'en'];
+      var target = /^de/i.test(langs[0]) ? '/de/' : '/en/';
+      location.replace(target);
+    })();
+  </script>
+</body>
+</html>
