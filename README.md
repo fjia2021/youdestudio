@@ -13,7 +13,7 @@ Static bilingual (EN/DE) site for `youdestudio.com`. Plain HTML/CSS/JS, no build
 | `/en/privacy/`, `/de/datenschutz/` | privacy policy |
 | `/{lang}/hm/` | reserved for a future second section |
 
-Shared assets are in `assets/`. The email address is assembled in `assets/site.js` so it is not in the HTML source.
+Everything that is published lives in `public/` (`index.html`, `en/`, `de/`, `assets/`, `sitemap.xml`, `robots.txt`, `404.html`, `_headers`). `wrangler.jsonc` and this README are not published. The email address is assembled in `public/assets/site.js` so it is not in the HTML source.
 
 ## Before going live
 
@@ -23,19 +23,19 @@ Shared assets are in `assets/`. The email address is assembled in `assets/site.j
 ## Local preview
 
 ```powershell
-python -m http.server 8080
+python -m http.server 8080 --directory public
 ```
 Open http://localhost:8080/ (root-relative links require serving from the site root).
 
-## Deploy: Cloudflare Pages
+## Deploy: Cloudflare (Workers static assets)
+
+`wrangler.jsonc` publishes the `public/` folder.
 
 1. Push this folder to the `main` branch of the GitHub repository (it can be private).
-2. Cloudflare dashboard > Workers & Pages > Create > Pages > Connect to Git, select the repository.
-3. Build command: leave empty. Build output directory: `/` (the repository root). Deploy.
-4. In the Pages project > Custom domains, add `youdestudio.com`. Cloudflare creates the DNS record and HTTPS certificate automatically.
-5. Optional: add `www.youdestudio.com` as a custom domain too, or create a Redirect Rule from `www` to the apex domain.
-
-Every push to `main` redeploys the site. `_headers` sets basic security headers.
+2. Cloudflare dashboard > Workers & Pages > Create application > connect the GitHub repository.
+3. Project/Worker name `youdestudio` (must match `name` in `wrangler.jsonc`). Build command: empty. Deploy command: `npx wrangler deploy`.
+4. After the first deploy: Worker > Settings > Domains & Routes > Add > Custom domain > `youdestudio.com`. Cloudflare creates the DNS record and HTTPS certificate automatically. Optionally add `www.youdestudio.com` too.
+5. Every push to `main` redeploys the site. `public/_headers` sets basic security headers.
 
 If an old DNS record from a previous GitHub Pages setup exists (A records to 185.199.x.x or a `www` CNAME to github.io), delete it before adding the custom domain.
 
