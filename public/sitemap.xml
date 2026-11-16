@@ -2,25 +2,26 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://youdestudio.com/</loc>
+    <xhtml:link rel="alternate" hreflang="de" href="https://youdestudio.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://youdestudio.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youdestudio.com/"/>
   </url>
   <url>
     <loc>https://youdestudio.com/en/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://youdestudio.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://youdestudio.com/de/"/>
-  </url>
-  <url>
-    <loc>https://youdestudio.com/de/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://youdestudio.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://youdestudio.com/de/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://youdestudio.com/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youdestudio.com/"/>
   </url>
   <url>
     <loc>https://youdestudio.com/en/fj/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://youdestudio.com/en/fj/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://youdestudio.com/de/fj/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://youdestudio.com/fj/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youdestudio.com/fj/"/>
   </url>
   <url>
-    <loc>https://youdestudio.com/de/fj/</loc>
+    <loc>https://youdestudio.com/fj/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://youdestudio.com/en/fj/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://youdestudio.com/de/fj/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://youdestudio.com/fj/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://youdestudio.com/fj/"/>
   </url>
 </urlset>

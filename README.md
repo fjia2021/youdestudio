@@ -6,14 +6,16 @@ Static bilingual (EN/DE) site for `youdestudio.com`. Plain HTML/CSS/JS, no build
 
 | URL | File |
 |---|---|
-| `/` | `index.html` (language chooser, redirects by browser language) |
-| `/en/`, `/de/` | studio entry pages (a card per section; add the next section here) |
-| `/en/fj/`, `/de/fj/` | Feng Jia: simulation + digital analytics |
-| `/en/impressum/`, `/de/impressum/` | legal notice |
-| `/en/privacy/`, `/de/datenschutz/` | privacy policy |
-| `/{lang}/hm/` | reserved for a future second section |
+| `/` | German studio entry page (default language) |
+| `/en/` | English studio entry page |
+| `/fj/`, `/en/fj/` | Feng Jia: simulation + digital analytics |
+| `/impressum/`, `/en/impressum/` | legal notice |
+| `/en/privacy/`, `/datenschutz/` | privacy policy |
+| `/hm/`, `/en/hm/` | reserved for a future second section |
 
-Everything that is published lives in `public/` (`index.html`, `en/`, `de/`, `assets/`, `sitemap.xml`, `robots.txt`, `404.html`, `_headers`). `wrangler.jsonc` and this README are not published. The email address is assembled in `public/assets/site.js` so it is not in the HTML source.
+Everything that is published lives in `public/` (`index.html`, `en/`, the German root-level pages, `assets/`, `sitemap.xml`, `robots.txt`, `404.html`, `_headers`, `_redirects`). `wrangler.jsonc` and this README are not published. The email address is assembled in `public/assets/site.js` so it is not in the HTML source.
+
+The former `/de/*` URLs permanently redirect to their German root-level equivalents.
 
 ## Before going live
 
@@ -46,4 +48,4 @@ Email > Email Routing: enable it, add a destination address (your private mailbo
 
 ## Adding a new section later (e.g. `hm`)
 
-Copy `en/fj/` and `de/fj/` to `en/hm/` and `de/hm/`, adapt the content, add a card on `en/index.html` and `de/index.html`, and list the URLs in `sitemap.xml`.
+Copy `en/fj/` to `en/hm/` and `fj/` to `hm/`, adapt the content, add a card on `en/index.html` and `index.html`, and list the URLs in `sitemap.xml`.
