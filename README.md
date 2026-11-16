@@ -1,6 +1,6 @@
 # Youde Studio website
 
-Static bilingual (EN/DE) site for `youdestudio.com`. Plain HTML/CSS/JS, no build step, no cookies, no third-party requests. A small Cloudflare Worker (`src/worker.js`) handles the contact form.
+Static bilingual (EN/DE) site for `youdestudio.com`. Plain HTML/CSS/JS, no build step. No cookies or third-party requests until the visitor consents (Klaro + Google Tag Manager, see below). A small Cloudflare Worker (`src/worker.js`) handles the contact form.
 
 ## Structure
 
@@ -58,6 +58,17 @@ One-time setup:
 Local test: create `.dev.vars` with `CONTACT_TO=you@example.com` and `ALLOW_ANY_ORIGIN=1`, run `npx wrangler dev`, open http://localhost:8787/impressum/ (the email is written to a local file instead of being sent).
 
 Optional hardening against spam: add a Cloudflare WAF rate-limiting rule for `/api/contact`, or Cloudflare Turnstile (this would need a Turnstile entry in the privacy policy).
+
+## Consent (Klaro) and Google Tag Manager
+
+- `public/assets/klaro/` holds a self-hosted copy of Klaro 0.7.21 (BSD-3, see `LICENSE.txt`); nothing is loaded from third parties before consent.
+- `public/assets/consent.js` (loaded synchronously in `<head>` before Klaro) sets Consent Mode v2 defaults to `denied`, holds the Klaro config and loads GTM (`GTM-5TCSFN7T`) only after at least one category is accepted (Consent Mode "basic": consent signals are always sent before GTM loads, so there are no Google pings without consent). To change the container, edit `GTM_ID` there.
+- Two Klaro services map to the Consent Mode signals: `gtmAnalytics` -> `analytics_storage`; `gtmAds` -> `ad_storage`, `ad_user_data`, `ad_personalization`.
+- Every page except `404.html` includes the three tags (stylesheet, `consent.js`, `klaro.js`) and a footer button `[data-consent-settings]` that reopens the dialog. Add the same to any new page.
+- `site.js` pushes `contact_form_submit` (form sent) and `contact_email_click` (mail link) to `dataLayer`, only when GTM is loaded. Use them as GTM triggers (Custom Event) for Google Ads conversions.
+- In GTM, set the Google Ads / GA4 tags to require `ad_storage` / `analytics_storage` (built-in consent checks) and test with Tag Assistant in both consent states.
+- The `<noscript>` GTM iframe is intentionally not used (it cannot respect consent).
+- If you add tags that set other cookies, add them to the matching service in `consent.js` (`cookies`) and to the privacy policy.
 
 ## Adding a new section later (e.g. `hm`)
 

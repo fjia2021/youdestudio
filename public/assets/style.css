@@ -147,6 +147,12 @@ blockquote footer { margin-top: .75rem; font-size: .92rem; color: var(--muted); 
 .site-footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: .75rem 2rem; }
 .site-footer a { color: var(--muted); }
 .site-footer a:hover { color: var(--accent); }
+.linklike { background: none; border: 0; padding: 0; font: inherit; color: var(--muted); text-decoration: underline; text-underline-offset: 3px; cursor: pointer; }
+.linklike:hover { color: var(--accent); }
+
+/* Klaro consent dialog */
+.klaro { --green1: #0f6b6b; --green2: #0a4f4f; --green3: #0f6b6b; --blue1: #0a4f4f; --border-radius: 10px; font-size: 1rem; }
+.klaro .cookie-notice, .klaro .cookie-modal { line-height: 1.5; }
 
 /* Language chooser */
 .chooser { min-height: 100vh; display: grid; place-items: center; text-align: center; padding: 2rem 1rem; }

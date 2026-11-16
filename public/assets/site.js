@@ -9,6 +9,9 @@
     if (el.hasAttribute('data-show')) {
       el.textContent = addr;
     }
+    el.addEventListener('click', function () {
+      if (window.gtmLoaded) window.dataLayer.push({ event: 'contact_email_click' });
+    });
   });
 })();
 
@@ -26,6 +29,7 @@
       .then(function (res) {
         if (!res.ok) throw new Error(res.status);
         form.reset();
+        if (window.gtmLoaded) window.dataLayer.push({ event: 'contact_form_submit' });
         status.classList.add('ok');
         status.textContent = form.getAttribute('data-msg-ok');
       })

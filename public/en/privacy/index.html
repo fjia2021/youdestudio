@@ -9,6 +9,9 @@
   <link rel="alternate" hreflang="de" href="https://youdestudio.com/datenschutz/">
   <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/assets/klaro/klaro.css">
+  <script src="/assets/consent.js"></script>
+  <script defer src="/assets/klaro/klaro.js" data-config="klaroConfig"></script>
 </head>
 <body>
   <header class="site-header">
@@ -29,7 +32,7 @@
     <p>Feng Jia, Freiburg im Breisgau, Germany (address in the <a href="/en/impressum/">legal notice</a>). Email: <a href="#" data-mail data-show>feng.jia [at] youdestudio.com</a></p>
 
     <h2>2. Overview</h2>
-    <p>This website sets no cookies, uses no analytics or tracking tools, loads no third-party fonts or scripts. A cookie banner is therefore not required.</p>
+    <p>This website does not set analytics or marketing cookies, does not load scripts from Google and does not embed third-party fonts without your consent. Optional services (statistics, marketing) are only activated after you consent via the consent manager (sections 6 and 7).</p>
 
     <h2>3. Hosting and domain via Cloudflare</h2>
     <p>This website is served via Cloudflare (Cloudflare Workers), and the domain youdestudio.com is managed through Cloudflare (DNS). The provider is Cloudflare, Inc., 101 Townsend St, San Francisco, CA 94107, USA. When you visit the pages, the provider processes technically necessary connection data, in particular your IP address, date and time, requested page and browser information (server log files). The legal basis is Art. 6(1)(f) GDPR (legitimate interest in providing the website securely and reliably). Data may be transferred to the USA; according to Cloudflare this is based on the EU-US Data Privacy Framework or standard contractual clauses. More information: <a href="https://www.cloudflare.com/privacypolicy/" rel="noopener">Cloudflare privacy policy</a>.</p>
@@ -40,10 +43,17 @@
     <h2>5. Contact by email or contact form</h2>
     <p>If you email me or use the contact form in the <a href="/en/impressum/">legal notice</a>, I process your details (name, email address, message content) solely to handle your enquiry. Messages sent through the form are transmitted by a Cloudflare Worker and delivered to my private mailbox via Cloudflare Email; they are not stored on the website itself. The legal basis is Art. 6(1)(b) GDPR (pre-contractual measures) or Art. 6(1)(f) GDPR. The data is deleted once it is no longer needed for that purpose and no statutory retention duties apply.</p>
 
-    <h2>6. External links</h2>
+    <h2>6. Consent management (Klaro)</h2>
+    <p>To obtain and store your consent I use the open-source tool Klaro, which is served by this website itself (no connection to third-party servers). Your choice is stored in a cookie named "klaro" in your browser (lifetime 180 days). This cookie is technically necessary to implement your decision. The legal basis is Section 25(2) no. 2 TDDDG and Art. 6(1)(f) GDPR. You can change or withdraw your choice at any time via the "Cookie settings" link in the footer.</p>
+
+    <h2>7. Google Tag Manager and Google Ads (only with consent)</h2>
+    <p>If you consent to the "Statistics" and/or "Marketing" category, Google Tag Manager is loaded and your consent signals are transmitted to Google under Google Consent Mode (v2). Statistics and marketing tags (e.g. Google Analytics, Google Ads conversion tracking) can be run through the tag manager. This may set cookies or similar technologies (e.g. _ga, _gcl_au) and transmit data such as IP address, pages visited, time, browser and device information and events (e.g. submitting the contact form, clicking the email address) to Google. Without your consent no connection to Google is made.</p>
+    <p>The provider is Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Ireland; data may be transferred to Google LLC in the USA (EU-US Data Privacy Framework or standard contractual clauses). The legal basis is your consent under Section 25(1) TDDDG and Art. 6(1)(a) GDPR. You can withdraw your consent at any time with effect for the future via "Cookie settings". More information: <a href="https://policies.google.com/privacy" rel="noopener">Google privacy policy</a>.</p>
+
+    <h2>8. External links</h2>
     <p>This website links to external sites (for example Google Scholar). Once you follow a link, the privacy policy of the respective provider applies.</p>
 
-    <h2>7. Your rights</h2>
+    <h2>9. Your rights</h2>
     <p>You have the right of access (Art. 15 GDPR), rectification (Art. 16), erasure (Art. 17), restriction of processing (Art. 18), data portability (Art. 20) and objection (Art. 21). You may also lodge a complaint with a data protection authority, for example the State Commissioner for Data Protection and Freedom of Information Baden-Württemberg, Lautenschlagerstraße 20, 70173 Stuttgart, Germany.</p>
 
     <p>Last updated: 2026</p>
@@ -52,7 +62,7 @@
   <footer class="site-footer">
     <div class="wrap">
       <span>© 2026 Feng Jia · Youde Studio</span>
-      <span><a href="/en/impressum/">Legal notice</a> · <a href="/en/privacy/">Privacy</a></span>
+      <span><a href="/en/impressum/">Legal notice</a> · <a href="/en/privacy/">Privacy</a> · <button type="button" class="linklike" data-consent-settings>Cookie settings</button></span>
     </div>
   </footer>
   <script src="/assets/site.js" defer></script>
