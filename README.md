@@ -1,6 +1,6 @@
 # Youde Studio website
 
-Static bilingual (EN/DE) site for `youdestudio.com`. Plain HTML/CSS/JS, no build step, no cookies, no third-party requests.
+Static bilingual (EN/DE) site for `youdestudio.com`. Plain HTML/CSS/JS, no build step, no cookies, no third-party requests. A small Cloudflare Worker (`src/worker.js`) handles the contact form.
 
 ## Structure
 
@@ -45,6 +45,19 @@ If an old DNS record from a previous GitHub Pages setup exists (A records to 185
 
 Email > Email Routing: enable it, add a destination address (your private mailbox, verify it), then create the rule
 `feng.jia@youdestudio.com` -> destination. Cloudflare adds the required MX/SPF records.
+
+## Contact form (Cloudflare Worker + Email Routing)
+
+The form on the Impressum pages posts to `/api/contact`, handled by `src/worker.js`; all other requests are served directly from `public/` (`run_worker_first: ["/api/*"]`). The Worker validates the input (honeypot field, length limits, same-origin check) and sends the message with the `send_email` binding `CONTACT_MAIL`.
+
+One-time setup:
+1. Email Routing must be enabled for `youdestudio.com` (see below) and your private mailbox must be a **verified destination address**.
+2. Store that mailbox as a secret (not in git): `npx wrangler secret put CONTACT_TO` (or Workers & Pages > youdestudio > Settings > Variables and Secrets).
+3. Deploy (`npx wrangler deploy` or push to `main`).
+
+Local test: create `.dev.vars` with `CONTACT_TO=you@example.com` and `ALLOW_ANY_ORIGIN=1`, run `npx wrangler dev`, open http://localhost:8787/impressum/ (the email is written to a local file instead of being sent).
+
+Optional hardening against spam: add a Cloudflare WAF rate-limiting rule for `/api/contact`, or Cloudflare Turnstile (this would need a Turnstile entry in the privacy policy).
 
 ## Adding a new section later (e.g. `hm`)
 

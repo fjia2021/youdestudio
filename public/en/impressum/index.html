@@ -33,8 +33,32 @@
     </p>
 
     <h2>Contact</h2>
-    <p>Email: <a href="#" data-mail data-show>feng.jia [at] youdestudio.com</a><br>
-    Phone: <a href="tel:+4915902059345">+49 1590 2059345</a></p>
+    <p>Email: <a href="#" data-mail data-show>feng.jia [at] youdestudio.com</a></p>
+
+    <form class="contact-form" id="contact-form" action="/api/contact" method="post"
+          data-msg-sending="Sending …"
+          data-msg-ok="Thank you, your message has been sent."
+          data-msg-error="The message could not be sent. Please email me instead.">
+      <p>
+        <label for="cf-name">Name</label>
+        <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+      </p>
+      <p>
+        <label for="cf-email">Email</label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required>
+      </p>
+      <p>
+        <label for="cf-message">Message</label>
+        <textarea id="cf-message" name="message" rows="6" maxlength="5000" required></textarea>
+      </p>
+      <p class="hp" aria-hidden="true">
+        <label for="cf-website">Please leave empty</label>
+        <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </p>
+      <p class="consent">By submitting you agree to the processing of your data as described in the <a href="/en/privacy/">privacy policy</a>.</p>
+      <p><button class="btn" type="submit">Send</button></p>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
 
     <h2>Liability for content</h2>
     <p>As a service provider I am responsible for my own content on these pages under the general laws. I am, however, not obliged to monitor transmitted or stored third-party information. Should I become aware of any infringement, I will remove the content promptly.</p>

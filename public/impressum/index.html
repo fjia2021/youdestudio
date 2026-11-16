@@ -32,8 +32,32 @@
     </p>
 
     <h2>Kontakt</h2>
-    <p>E-Mail: <a href="#" data-mail data-show>feng.jia [at] youdestudio.com</a><br>
-    Telefon: <a href="tel:+4915902059345">+49 1590 2059345</a></p>
+    <p>E-Mail: <a href="#" data-mail data-show>feng.jia [at] youdestudio.com</a></p>
+
+    <form class="contact-form" id="contact-form" action="/api/contact" method="post"
+          data-msg-sending="Wird gesendet …"
+          data-msg-ok="Vielen Dank, Ihre Nachricht wurde gesendet."
+          data-msg-error="Die Nachricht konnte nicht gesendet werden. Bitte schreiben Sie mir stattdessen eine E-Mail.">
+      <p>
+        <label for="cf-name">Name</label>
+        <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+      </p>
+      <p>
+        <label for="cf-email">E-Mail</label>
+        <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required>
+      </p>
+      <p>
+        <label for="cf-message">Nachricht</label>
+        <textarea id="cf-message" name="message" rows="6" maxlength="5000" required></textarea>
+      </p>
+      <p class="hp" aria-hidden="true">
+        <label for="cf-website">Bitte leer lassen</label>
+        <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+      </p>
+      <p class="consent">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäß der <a href="/datenschutz/">Datenschutzerklärung</a> zu.</p>
+      <p><button class="btn" type="submit">Senden</button></p>
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
 
     <h2>Haftung für Inhalte</h2>
     <p>Als Diensteanbieter bin ich gemäß den allgemeinen Gesetzen für eigene Inhalte auf diesen Seiten verantwortlich. Ich bin jedoch nicht verpflichtet, übermittelte oder gespeicherte fremde Informationen zu überwachen. Bei Bekanntwerden von Rechtsverletzungen werde ich entsprechende Inhalte umgehend entfernen.</p>

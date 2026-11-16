@@ -127,6 +127,19 @@ blockquote footer { margin-top: .75rem; font-size: .92rem; color: var(--muted); 
 .legal { padding: 3rem 0 4rem; max-width: 46rem; }
 .legal h1 { font-size: 2rem; }
 .legal h2 { font-size: 1.25rem; margin-top: 2rem; }
+.contact-form { max-width: 32rem; }
+.contact-form label { display: block; font-weight: 600; font-size: .95rem; margin-bottom: .25rem; }
+.contact-form input, .contact-form textarea {
+  width: 100%; font: inherit; color: var(--ink); background: var(--surface);
+  border: 1px solid var(--line); border-radius: 6px; padding: .55rem .75rem;
+}
+.contact-form input:focus-visible, .contact-form textarea:focus-visible { outline: 3px solid #f2b705; outline-offset: 1px; }
+.contact-form button { cursor: pointer; font: inherit; font-weight: 600; }
+.contact-form button:disabled { opacity: .6; cursor: default; }
+.contact-form .consent { font-size: .9rem; color: var(--muted); }
+.contact-form .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.form-status.ok { color: var(--accent-dark); font-weight: 600; }
+.form-status.err { color: #b00020; font-weight: 600; }
 .placeholder { background: #fff4c2; padding: 0 .3rem; border-radius: 3px; }
 
 /* Footer */

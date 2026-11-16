@@ -11,3 +11,28 @@
     }
   });
 })();
+
+(function () {
+  var form = document.getElementById('contact-form');
+  if (!form) return;
+  var status = form.querySelector('.form-status');
+  var button = form.querySelector('button');
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    button.disabled = true;
+    status.className = 'form-status';
+    status.textContent = form.getAttribute('data-msg-sending');
+    fetch(form.action, { method: 'POST', body: new FormData(form) })
+      .then(function (res) {
+        if (!res.ok) throw new Error(res.status);
+        form.reset();
+        status.classList.add('ok');
+        status.textContent = form.getAttribute('data-msg-ok');
+      })
+      .catch(function () {
+        status.classList.add('err');
+        status.textContent = form.getAttribute('data-msg-error');
+      })
+      .then(function () { button.disabled = false; });
+  });
+})();
