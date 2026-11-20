@@ -2,7 +2,9 @@
 // Google Tag Manager is NOT requested until the visitor has accepted at least one category
 // (Consent Mode "basic" implementation); consent signals are always sent before GTM loads.
 (function () {
-  var GTM_ID = 'GTM-5TCSFN7T';
+  // Stape custom loader (first-party): script path and encoded container id
+  var GTM_SRC = 'https://youdestudio.com/fx/iqshbzzfg.js?';
+  var GTM_ID = '94=DgJHPTYlXkQzJSk8LF8nVxFbSFRTThcfWh8VDwYNAAUSAhMVTAscHEEVFQpfRxUJ';
 
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
@@ -26,7 +28,7 @@
     window.dataLayer.push({ 'gtm.start': Date.now(), event: 'gtm.js' });
     var s = document.createElement('script');
     s.async = true;
-    s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+    s.src = GTM_SRC + GTM_ID;
     document.head.appendChild(s);
   }
 
