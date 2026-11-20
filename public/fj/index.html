@@ -168,6 +168,30 @@
           <h2>Kontakt</h2>
           <p class="section-intro">Beschreiben Sie mir kurz Ihr Projekt oder Ihr Messproblem. Ich melde mich so bald wie möglich.</p>
           <p class="contact-mail"><a href="#contact" data-mail data-show data-subject="Projektanfrage">feng.jia [at] youdestudio.com</a></p>
+          <form class="contact-form" id="contact-form" action="/api/contact" method="post"
+                data-msg-sending="Wird gesendet …"
+                data-msg-ok="Vielen Dank, Ihre Nachricht wurde gesendet."
+                data-msg-error="Die Nachricht konnte nicht gesendet werden. Bitte schreiben Sie mir stattdessen eine E-Mail.">
+            <p>
+              <label for="cf-name">Name</label>
+              <input id="cf-name" name="name" type="text" autocomplete="name" maxlength="100" required>
+            </p>
+            <p>
+              <label for="cf-email">E-Mail</label>
+              <input id="cf-email" name="email" type="email" autocomplete="email" maxlength="200" required>
+            </p>
+            <p>
+              <label for="cf-message">Nachricht</label>
+              <textarea id="cf-message" name="message" rows="6" maxlength="5000" required></textarea>
+            </p>
+            <p class="hp" aria-hidden="true">
+              <label for="cf-website">Bitte leer lassen</label>
+              <input id="cf-website" name="website" type="text" tabindex="-1" autocomplete="off">
+            </p>
+            <p class="consent">Mit dem Absenden stimmen Sie der Verarbeitung Ihrer Angaben gemäß der <a href="/datenschutz/">Datenschutzerklärung</a> zu.</p>
+            <p><button class="btn" type="submit">Senden</button></p>
+            <p class="form-status" role="status" aria-live="polite"></p>
+          </form>
           <p>Freiburg im Breisgau · Arbeitssprachen: Englisch, Chinesisch und Deutsch</p>
         </div>
       </div>
